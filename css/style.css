@@ -598,4 +598,13 @@
   .product-name {
     font-size: 13px;
   }
+  .main-header {
+    font-size: 30px;
+  }
+  .info-btn {
+    padding: 2px 5px;
+  }
+  .buy-btn {
+    padding: 7px 13px;
+  }
 }
