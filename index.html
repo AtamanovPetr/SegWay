@@ -9,6 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>SegWay</title>
@@ -32,17 +36,211 @@
               </li>
             </ul>
           </nav>
+          <button class="burger" aria-label="Открыть меню">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+          <a href="#"
+            ><img src="/img/logo-icon.png" alt="logo" class="nav-logo"
+          /></a>
           <div class="cart">
-            <img src="/img/cart-icon.png" alt="" />
-            <img class="inst" src="img/inst-icon.png" alt="" />
-            <a class="nav-phone" href="#">+1 (888) 888-88-88</a>
             <a href="#" class="phone-icon"
               ><img src="/img/phone-icon.png" alt=""
             /></a>
+            <img src="/img/cart-icon.png" alt="" />
+            <img class="inst" src="img/inst-icon.png" alt="" />
+            <a class="nav-phone" href="#">+1 (888) 888-88-88</a>
+          </div>
+          <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-nav-list">
+              <li><a href="#" class="nav-link">REVIEWS</a></li>
+              <li><a href="#" class="nav-link">SHIPPING AND PAYMENT</a></li>
+              <li><a href="#" class="nav-link">WHOLESALE</a></li>
+              <li><a href="#" class="nav-link">BLOG</a></li>
+              <li><a href="#" class="nav-link">CONTACTS</a></li>
+            </ul>
           </div>
         </div>
       </div>
     </header>
+    <section class="catalog">
+      <div class="container">
+        <!-- Обёртка Swiper -->
+        <div class="swiper catalog-swiper">
+          <div class="swiper-wrapper">
+            <!-- Карточки товаров -->
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/1.png"
+                alt="Самокат 1"
+                class="product-img"
+              />
+              <h3 class="product-name">KS E22</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/2.png"
+                alt="Самокат 2"
+                class="product-img"
+              />
+              <h3 class="product-name">KS ES1l</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/3.png"
+                alt="Самокат 3"
+                class="product-img"
+              />
+              <h3 class="product-name">KS Air t15</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/4.png"
+                alt="Самокат 4"
+                class="product-img"
+              />
+              <h3 class="product-name">KS F30</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/5.png"
+                alt="Самокат 5"
+                class="product-img"
+              />
+              <h3 class="product-name">KS E45</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/6.png"
+                alt="Самокат 6"
+                class="product-img"
+              />
+              <h3 class="product-name">KS MAX</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/7.png"
+                alt="Самокат 7"
+                class="product-img"
+              />
+              <h3 class="product-name">KS MAX</h3>
+            </div>
+
+            <!-- 7 -->
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/7.png"
+                alt="Самокат 7"
+                class="product-img"
+              />
+              <h3 class="product-name">KS ES2</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/9.png"
+                alt="Самокат 9"
+                class="product-img"
+              />
+              <h3 class="product-name">EKS ZING E8</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/10.png"
+                alt="Самокат 10"
+                class="product-img"
+              />
+              <h3 class="product-name">EKS ZING E10</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/11.png"
+                alt="Самокат 11"
+                class="product-img"
+              />
+              <h3 class="product-name">EKS ZING E12</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/12.png"
+                alt="Самокат 12"
+                class="product-img"
+              />
+              <h3 class="product-name">KS ES 4</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/13.png"
+                alt="Самокат 13"
+                class="product-img"
+              />
+              <h3 class="product-name">KS ES 4</h3>
+            </div>
+            <div class="product-card swiper-slide">
+              <img
+                src="/img/main-slider/8.png"
+                alt="Самокат 8"
+                class="product-img"
+              />
+              <h3 class="product-name">Accessories</h3>
+            </div>
+            <!-- Скопируй ещё 13 карточек -->
+          </div>
+
+          <!-- Кнопки навигации -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
     <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // Инициализация слайдера
+      const swiper = new Swiper(".catalog-swiper", {
+        // Базовые настройки (для всех разрешений)
+        slidesPerView: 2,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+        breakpoints: {
+          320: {
+            slidesPerView: 4,
+          },
+          375: {
+            slidesPerView: 3,
+            grid: {
+              rows: 2,
+              fill: "row",
+            },
+          },
+          576: {
+            slidesPerView: 4,
+            grid: {
+              rows: 2,
+              fill: "row",
+            },
+          },
+          768: {
+            slidesPerView: 5,
+            grid: {
+              rows: 2,
+              fill: "row",
+            },
+            navigation: false, // убираем стрелки
+          },
+          // Когда ширина экрана >= 1024px
+          1024: {
+            slidesPerView: 7,
+            grid: {
+              rows: 2,
+              fill: "row",
+            },
+          },
+        },
+      });
+    </script>
   </body>
 </html>

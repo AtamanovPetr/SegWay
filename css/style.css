@@ -54,6 +54,121 @@
   height: 24px;
 }
 
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.burger-line {
+  width: 100%;
+  height: 2px;
+  background: #000;
+  transition: all 0.3s ease;
+}
+
+/* Мобильное меню */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 57, 65, 1);
+  padding: 20px 0;
+  padding-left: 45px;
+  z-index: 5;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  padding: 0 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #000;
+}
+.nav-logo {
+  display: none;
+}
+
+.burger.open .burger-line:nth-child(1) {
+  background-color: #fff;
+  transform: rotate(45deg) translate(5px, 6px);
+}
+.burger.open .burger-line:nth-child(2) {
+  opacity: 0;
+}
+.burger.open .burger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+  background-color: #fff;
+}
+
+.product-card {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.product-card:hover {
+  background: #009eff;
+}
+.product-card:hover .product-name {
+  color: white;
+}
+/* Изображение внутри карточки */
+.product-img {
+  height: 80px;
+}
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  flex-direction: column; /* убираем возможную фиксированную высоту */
+}
+.swiper-slide:nth-child(14) .product-img {
+  height: 50px;
+  margin-top: 28px;
+}
+/* Название модели */
+.product-name {
+  margin: 0;
+  margin-top: 5px;
+  color: gray;
+  font-family: "Montserrat";
+  font-style: Bold;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.catalog {
+  background: rgba(50, 57, 65, 1);
+}
+.catalog-swiper .swiper-button-next,
+.catalog-swiper .swiper-button-prev {
+  display: inline-block; /* Позволяет трансформировать элемент */
+  transform: scaleX(0.6);
+  width: 40px;
+}
+@media (min-width: 1024px) {
+  .catalog-swiper .swiper-button-prev,
+  .catalog-swiper .swiper-button-next {
+    display: none;
+  }
+}
 @media (max-width: 960px) {
   .nav-phone {
     display: none;
@@ -61,7 +176,43 @@
   .phone-icon {
     display: block;
   }
-  .phone-icon img {
-    filter: brightness(0) invert(1);
+  .nav-wrapper {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+  .nav-logo {
+    display: block;
+    padding-left: 40px;
+  }
+  .mobile-menu.active {
+    display: block;
+  }
+  .header {
+    background: #fff;
+    height: 48px;
+  }
+  .cart img {
+    filter: brightness(0);
+    height: 17px;
+    width: 17px;
+  }
+  .cart {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .product-img {
+    height: 70px;
+  }
+  .product-card {
+    padding-bottom: 0;
+    padding-top: 20px;
+  }
+  .product-name {
+    font-size: 13px;
   }
 }
