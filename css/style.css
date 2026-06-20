@@ -993,6 +993,61 @@
   text-align: left;
   display: block;
 }
+.folding-section {
+  background-color: #ffffff; /* Чистый белый фон как на макете */
+  padding: 100px 0;
+  width: 100%;
+}
+
+/* Строим всё строго сверху вниз в одну колонку */
+.folding-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Шапка секции */
+.folding-header {
+  max-width: 800px; /* Чтобы текст описания не растягивался слишком широко */
+  margin-bottom: 50px; /* Отступ от текста до самоката */
+}
+
+.folding-title {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Bold;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 119.3%;
+  text-transform: uppercase;
+  margin: 0 0 15px 0;
+}
+
+.folding-text {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Regular;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 0;
+}
+
+/* Блок с картинкой самоката */
+.folding-visual {
+  width: 100%;
+  max-width: 820px; /* Ограничиваем максимальный размер картинки на ПК */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.folding-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -1640,6 +1695,33 @@
     line-height: 130%;
     text-align: left;
     color: #60666d;
+  }
+  .folding-section {
+    padding: 50px 0; /* Делаем аккуратные воздушные отступы на смартфонах */
+  }
+
+  .folding-header {
+    margin-bottom: 30px;
+    padding: 0 15px; /* Чтобы текст не упирался в края экрана телефона */
+  }
+
+  /* Пропорционально уменьшаем гигантские шрифты под экраны мобильных */
+  .folding-title {
+    font-size: 26px;
+    line-height: 120%;
+    margin-bottom: 10px;
+  }
+
+  .folding-text {
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  /* Картинка сама сожмется до 100% ширины дисплея за счет настроек folding-img выше */
+  .folding-visual {
+    max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 }
 @media (max-width: 580px) {
