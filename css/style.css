@@ -1082,6 +1082,75 @@
   margin: 0;
   max-width: 520px; /* Чтобы строки описания не растягивались слишком сильно */
 }
+.charging-section {
+  background-color: #ffffff; /* Светлый фон секции */
+  padding: 100px 0;
+  position: relative; /* База для позиционирования вылетающего влево колеса */
+  overflow: hidden; /* Безопасно скрывает левый хвост самоката */
+  width: 100%;
+}
+
+/* Обертка выстраивает текст в правую половину, освобождая левую под картинку */
+.charging-wrapper {
+  display: flex;
+  justify-content: flex-end; /* Выталкивает контент в правую часть сетки .container */
+  width: 100%;
+}
+
+/* Текст справа: сидит идеально в общей сетке сайта */
+.charging-content {
+  flex: 0 0 50%; /* Текст занимает ровно половину ширины контейнера */
+  max-width: 500px;
+  position: relative;
+  z-index: 2;
+}
+
+.charging-title {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Bold;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 119.3%;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+
+.charging-text {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Regular;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  margin: 0;
+}
+
+/* Картинка колеса слева, выходящая за пределы контейнера */
+.charging-visual {
+  position: absolute;
+  left: 0; /* Начинается от левого физического края монитора */
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: calc(
+    50vw + 60px
+  ); /* Занимает половину экрана + заходит в контейнер на 60px */
+  height: 100%;
+  display: flex;
+  justify-content: flex-end; /* Прижимает колесо поближе к тексту */
+  align-items: center;
+  z-index: 1;
+}
+
+.charging-main-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 420px; /* Идеальный масштаб, чтобы колесо не прижималось к краям секции */
+  object-fit: contain;
+}
+
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -1809,6 +1878,58 @@
     max-width: 100%;
     text-align: left;
     color: #a0a6ad;
+  }
+  .charging-section {
+    padding: 40px 0 30px 0; /* Обычные аккуратные паддинги для мобильного экрана */
+  }
+
+  /* Строим в обычную колонку: текст по HTML идет первым, поэтому он встанет НАВЕРХ */
+  .charging-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Расстояние от текста до картинки снизу */
+  }
+
+  /* Текстовый блок сверху: выравнивается по левому краю */
+  .charging-content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: left;
+    padding: 0 20px;
+  }
+
+  .charging-title {
+    font-size: 25px; /* Корректируем размер шрифта под мобилки */
+    line-height: 120%;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .charging-text {
+    font-size: 14px;
+    line-height: 140%;
+    text-align: left;
+  }
+
+  /* Сбрасываем десктопное абсолютное позиционирование для картинки */
+  .charging-visual {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100vw;
+    height: auto;
+    margin: 0 -20px; /* Выводим картинку вплотную к краям дисплея смартфона */
+    justify-content: center;
+  }
+
+  /* Адаптивное мобильное колесо снизу */
+  .charging-main-img {
+    width: 100%;
+    max-width: 320px; /* Ограничиваем ширину, чтобы картинка смотрелась аккуратно */
+    height: auto;
+    max-height: none;
+    object-fit: contain;
   }
 }
 @media (max-width: 580px) {
