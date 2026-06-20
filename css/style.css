@@ -831,6 +831,42 @@
   height: auto;
   display: block;
 }
+
+.bms-section {
+  padding: 150px 0;
+  width: 100%;
+
+  /* Картинка растягивается на весь экран и прижимается к ПРАВОМУ краю */
+  background: #0b111e url("../img/battery.png") right center no-repeat;
+  background-size: cover; /* Позволяет картинке выходить за пределы сетки до упора вправо */
+}
+
+/* Ограничиваем контент слева, чтобы он не залезал на батарею */
+.bms-content {
+  max-width: 60%; /* Текст занимает ровно левую половину */
+}
+
+.bms-title {
+  color: var(--White, rgba(255, 255, 255, 1));
+  font-style: Bold;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 119.3%;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+
+.bms-text {
+  color: rgba(255, 255, 255, 1);
+  font-style: Regular;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  max-width: 600px; /* Дополнительно ограничиваем строку описания */
+}
+
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -1324,6 +1360,43 @@
     font-weight: 400;
     text-align: left;
     white-space: nowrap; /* Запрещаем перенос слов, чтобы строки шли в один ряд */
+  }
+  .bms-section {
+    padding: 0; /* Обнуляем десктопные паддинги, чтобы padding-top работал корректно */
+    background: #0b111e url("../img/battery-mobile.png") center top no-repeat;
+    background-size: contain; /* Ставим contain, чтобы мобильная батарея гарантированно не обрезалась по бокам */
+    width: 100%;
+  }
+
+  /* Обертка создает пространство под картинку и сбрасывает десктопный Flexbox */
+  .bms-wrapper {
+    display: block; /* Выключаем флекс десктопной версии */
+    padding-top: 75%; /* Задает высоту картинки. Если картинка слишком высокая, увеличь до 80-85% */
+    position: relative;
+  }
+
+  /* Текстовый блок падает строго под картинку */
+  .bms-content {
+    max-width: 100%; /* Текст занимает всю ширину экрана */
+    text-align: left; /* Строго по левому краю, как на макете */
+    padding: 10px 10px 40px 10px; /* Отступы вокруг текста на мобильном */
+  }
+
+  /* Сбрасываем десктопную HTML-картинку, если ты добавлял её в прошлом шаге */
+  .bms-visual {
+    display: none;
+  }
+
+  .bms-title {
+    font-size: 25px;
+    line-height: 120%;
+    margin-bottom: 15px;
+  }
+
+  .bms-text {
+    font-size: 14px;
+    line-height: 140%;
+    max-width: 100%;
   }
 }
 @media (max-width: 580px) {
