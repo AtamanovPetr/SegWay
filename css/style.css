@@ -867,6 +867,87 @@
   max-width: 600px; /* Дополнительно ограничиваем строку описания */
 }
 
+.brake-section {
+  background-color: #ffffff;
+  /* ПРИНУДИТЕЛЬНО ВОЗВРАЩАЕМ ОТСТУПЫ, ЧТОБЫ СЕКЦИЯ НЕ СЖИМАЛАСЬ */
+  position: relative; /* Родоначальник для позиционирования вылетающей картинки */
+  overflow: hidden; /* Безопасно скрывает левый хвост самоката */
+  width: 100%;
+}
+
+/* Обертка выстраивает текст в правую половину */
+.brake-wrapper {
+  display: flex;
+  justify-content: flex-end; /* Выталкивает текст в правую часть сетки */
+  width: 100%;
+  gap: 50px;
+  padding-bottom: 100px;
+}
+
+/* Текст справа: сидит идеально в сетке .container */
+.brake-content {
+  flex: 0 0 50%; /* Текст занимает ровно половину ширины контейнера */
+  max-width: 500px;
+  position: relative;
+  z-index: 2; /* Текст всегда выше картинки */
+  padding-top: 50px;
+}
+
+.brake-title {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Bold;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 119.3%;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+
+.brake-text {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Regular;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  margin: 0 0 15px 0;
+}
+
+.brake-note {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Regular;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+}
+
+/* Картинка слева: ИСПРАВЛЕННЫЙ ПЕРЕРАСЧЕТ С ЦЕНТРИРОВАНИЕМ */
+.brake-visual {
+  position: absolute;
+  left: 0; /* Начинается от левого физического края экрана */
+  /* ЦЕНТРИРУЕМ ПО ВЕРТИКАЛИ ОТНОСИТЕЛЬНО ВЫСОТЫ ТЕКСТА */
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: calc(
+    50vw + 60px
+  ); /* Занимает половину экрана + заходит в контейнер на 60px */
+  height: 100%;
+  display: flex;
+  justify-content: flex-end; /* Картинка всегда стремится вправо, поближе к тексту */
+  align-items: center;
+  z-index: 1;
+}
+
+.brake-main-img {
+  width: auto;
+  max-width: 100%; /* Запрещает картинке раздуваться больше своего флекс-блока */
+  height: auto; /* Меняем на auto, чтобы высота подстраивалась под пропорции */
+  max-height: 380px; /* Слегка уменьшаем высоту самого колеса, чтобы появились отступы сверху и снизу */
+  object-fit: contain; /* Картинка сжимается пропорционально и никогда не исчезнет */
+}
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -1397,6 +1478,63 @@
     font-size: 14px;
     line-height: 140%;
     max-width: 100%;
+  }
+
+  /* Перестраиваем контейнер в колонку: картинка будет СВЕРХУ, текст СНИЗУ */
+  .brake-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Отступ между колесом и заголовком */
+    padding-bottom: 30px;
+  }
+
+  /* СБРОС ДЕСКТОПНЫХ СТИЛЕЙ: Возвращаем блок с картинкой в обычный поток */
+  .brake-visual {
+    position: relative; /* Вместо absolute */
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 100vw; /* Растягиваем блок на всю ширину экрана смартфона */
+    height: auto;
+    justify-content: flex-start;
+  }
+
+  /* Сама картинка подстраивается под ширину телефона */
+  .brake-main-img {
+    width: 100%;
+    max-width: 480px; /* Ограничиваем, чтобы колесо не было гигантским на смартфонах */
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  /* Текстовый блок падает строго под картинку и выравнивается влево */
+  .brake-content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: left; /* Текст строго влево по макету */
+    padding: 0 20px; /* Паддинги, чтобы текст не прижимался к стеклу экрана */
+  }
+
+  .brake-title {
+    font-size: 25px; /* Уменьшаем заголовок под мобилки */
+    line-height: 120%;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .brake-text {
+    font-size: 14px;
+    line-height: 140%;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .brake-note {
+    font-size: 12px;
+    line-height: 130%;
+    text-align: left;
   }
 }
 @media (max-width: 580px) {
