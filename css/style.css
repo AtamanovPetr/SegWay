@@ -948,6 +948,51 @@
   max-height: 380px; /* Слегка уменьшаем высоту самого колеса, чтобы появились отступы сверху и снизу */
   object-fit: contain; /* Картинка сжимается пропорционально и никогда не исчезнет */
 }
+
+.light-section {
+  padding: 100px 0;
+  width: 100%;
+  /* Картинка фары растягивается на весь экран до упора вправо */
+  background: #0b111e url("../img/led.png") right center no-repeat;
+  background-size: cover;
+}
+
+/* Ограничиваем ширину текста, чтобы он оставался строго в левой части */
+.light-content {
+  max-width: 50%;
+}
+
+.light-title {
+  color: #ffffff;
+  font-style: Bold;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 119.3%;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+
+.light-text {
+  color: var(--Grey2, rgba(153, 153, 153, 1));
+  font-style: Regular;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  margin: 0 0 15px 0;
+  max-width: 440px;
+}
+
+.light-disclaimer {
+  color: var(--Grey2, rgba(153, 153, 153, 1));
+  font-style: Regular;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  display: block;
+}
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -1535,6 +1580,66 @@
     font-size: 12px;
     line-height: 130%;
     text-align: left;
+  }
+  .light-section {
+    padding: 0; /* Обнуляем десктопные отступы */
+
+    /* ИСПОЛЬЗУЕМ КЛАССИЧЕСКИЙ ЧЕРНЫЙ ФОН МАКЕТА */
+    background: #06090e url("../img/led-mobile.png") center top no-repeat;
+    background-size: cover; /* Растягиваем картинку на весь экран, убирая поля по бокам */
+
+    /* Задаем фиксированную высоту для мобильного баннера, чтобы поместился и руль, и текст */
+    min-height: 520px;
+
+    /* Включаем флекс, чтобы прижать текст к нижней границе, как на скрине */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  /* Контейнер внутри секции */
+  .light-section .container {
+    width: 100%;
+    padding: 0;
+  }
+
+  /* Текстовый блок: аккуратно садится в самый низ поверх темной части картинки */
+  .light-content {
+    max-width: 100%;
+    text-align: left; /* Строго влево по макету */
+    padding: 40px 20px; /* Отступы от краев экрана смартфона */
+    box-sizing: border-box;
+
+    /* На всякий случай добавляем мягкое темное размытие под текстом, 
+       чтобы буквы читались идеально, если картинка внизу недостаточно темная */
+    background: linear-gradient(
+      to top,
+      rgba(6, 9, 14, 0.9) 0%,
+      rgba(6, 9, 14, 0) 100%
+    );
+  }
+
+  .light-title {
+    font-size: 25px; /* Компактный размер для мобильного экрана */
+    line-height: 120%;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .light-text {
+    font-size: 13px;
+    line-height: 140%;
+    margin-bottom: 10px;
+    max-width: 100%;
+    text-align: left;
+    color: #a0a6ad; /* Приглушенный серый для читаемости */
+  }
+
+  .light-disclaimer {
+    font-size: 11px;
+    line-height: 130%;
+    text-align: left;
+    color: #60666d;
   }
 }
 @media (max-width: 580px) {
