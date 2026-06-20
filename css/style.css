@@ -1048,6 +1048,40 @@
   display: block;
   object-fit: contain;
 }
+.recycle-section {
+  padding: 150px 0;
+  width: 100%;
+  /* Темно-синий фон макета, картинка прижата к ПРАВОМУ краю */
+  background: #06090e url("../img/recycle.png") right center no-repeat;
+  background-size: cover;
+}
+
+/* Текст занимает строго левую половину сетки */
+.recycle-content {
+  max-width: 50%;
+}
+
+.recycle-title {
+  color: #ffffff;
+  font-style: Bold;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 119.3%;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+
+.recycle-text {
+  color: var(--Grey2, rgba(153, 153, 153, 1));
+  font-style: Regular;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  margin: 0;
+  max-width: 520px; /* Чтобы строки описания не растягивались слишком сильно */
+}
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -1329,7 +1363,10 @@
     overflow-x: auto;
     overflow-y: visible; /* Позволяет странице скроллиться сквозь этот блок */
     -webkit-overflow-scrolling: touch; /* Плавный скролл для iOS */
-    touch-action: pan-y; /* Разрешает вертикальный жест пальцем */
+
+    /* ИСПРАВЛЕНО: Разрешаем свайпы И влево-вправо для карточек, И вверх-вниз для страницы */
+    touch-action: pan-x pan-y;
+
     gap: 20px;
     padding: 10px 20px 30px 20px;
     margin: 0 -20px;
@@ -1352,11 +1389,10 @@
     text-align: left;
     padding: 0;
 
-    /* Фиксируем ширину карточки в ряду, чтобы они не сжимались */
+    /* ИСПРАВЛЕНО: убрали дублирующий margin-right, так как у нас уже настроен gap: 20px */
     flex: 0 0 200px;
     width: 200px;
     max-width: 200px;
-    margin-right: 20px;
   }
 
   /* Заголовок сдвигаем влево */
@@ -1381,6 +1417,7 @@
   .card-price-row {
     justify-content: space-between;
     font-size: 16px;
+    width: 100%; /* Добавили ширину, чтобы space-between сработал корректно */
   }
 
   .price-label {
@@ -1723,6 +1760,56 @@
     padding: 0 10px;
     box-sizing: border-box;
   }
+  .recycle-section {
+    padding: 0; /* Сбрасываем десктопные паддинги */
+
+    /* Подключаем мобильный фон с рекуперацией */
+    background: #06090e url("../img/recycle-mobile.png") center top no-repeat;
+    background-size: cover; /* Заполняет экран на 100% без полей */
+
+    /* Фиксируем высоту, чтобы поместился и самокат, и весь текст снизу */
+    min-height: 540px;
+
+    /* Флексом прижимаем текст в самый низ поверх картинки */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .recycle-section .container {
+    width: 100%;
+    padding: 0;
+  }
+
+  /* Текстовый блок садится строго вниз со смещением влево */
+  .recycle-content {
+    max-width: 100%;
+    text-align: left; /* Текст строго влево, как на твоих макетах */
+    padding: 40px 20px;
+    box-sizing: border-box;
+
+    /* CSS-градиент для того, чтобы белый текст читался контрастно на фоне колеса */
+    background: linear-gradient(
+      to top,
+      rgba(6, 9, 14, 0.95) 0%,
+      rgba(6, 9, 14, 0) 100%
+    );
+  }
+
+  .recycle-title {
+    font-size: 25px;
+    line-height: 120%;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .recycle-text {
+    font-size: 13px;
+    line-height: 140%;
+    max-width: 100%;
+    text-align: left;
+    color: #a0a6ad;
+  }
 }
 @media (max-width: 580px) {
   .main-details-item:nth-child(2),
@@ -1816,7 +1903,9 @@
     grid-template-columns: 1fr;
     gap: 40px 0;
   }
-
+  .accessory-card {
+    margin-right: 20px;
+  }
   .accessory-card p {
     max-width: 100%;
   }
