@@ -359,6 +359,423 @@
             </div>
           </div>
         </div>
+        <div class="tabs-container">
+          <!-- Верхнее меню -->
+          <div class="tabs-menu">
+            <button class="tab-btn" onclick="openTab(event, 'delivery')">
+              <img src="./img/tabs/1.png" alt="" />
+              <span>Delivery within 1 business day</span>
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'warranty')">
+              <img src="./img/tabs/2.png" alt="" />
+              <span>Basic 1 year warranty</span>
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'support')">
+              <img src="./img/tabs/3.png" alt="" />
+              <span>After Sales Support</span>
+            </button>
+            <!-- Активная вкладка из примера -->
+            <button class="tab-btn active" onclick="openTab(event, 'range')">
+              <img src="./img/tabs/4.png" alt="" />
+              <span>Up to 40 miles per charge</span>
+            </button>
+          </div>
+
+          <!-- Блоки контента -->
+          <div id="delivery" class="tab-content">
+            <div class="content-left">
+              <h2>
+                WE ARE IN <br />
+                LOS ANGELES, CA
+              </h2>
+              <p>Free California 1 day shipping. US Free Shipping 3-5 Days</p>
+            </div>
+            <div class="content-right">
+              <img
+                src="./img/tabs/2-icon.png"
+                alt=""
+                class="content-right-image"
+              />
+            </div>
+          </div>
+
+          <div id="warranty" class="tab-content">
+            <div class="content-left">
+              <h2>
+                One year <br />
+                manufacturer's warranty
+              </h2>
+              <p>
+                The basic warranty is 1 year. <br />
+                You can also extend the warranty up to 4 years.
+              </p>
+            </div>
+            <div class="content-right">
+              <img
+                src="./img/tabs/4-icon.png"
+                alt=""
+                class="content-right-image"
+              />
+            </div>
+          </div>
+
+          <div id="support" class="tab-content">
+            <div class="content-left">
+              <h2>
+                After Sales <br />
+                Support
+              </h2>
+              <p>
+                If you have any difficulties with your kickscooter, our
+                specialists will contact you within 15 minutes
+              </p>
+            </div>
+            <div class="content-right">
+              <img
+                src="./img/tabs/3-icon.png"
+                alt=""
+                class="content-right-image"
+              />
+            </div>
+          </div>
+
+          <!-- Активный контент из примера -->
+          <div id="range" class="tab-content active">
+            <div class="content-left">
+              <h2>UP TO 40 MILES OF RANGE ON A SINGLE CHARGE</h2>
+              <p>
+                With a range of up to 40 miles, the longest range on the market,
+                and a 20˚uphill climbing angle, the KickScooter MAX allows you
+                to ride from San Francisco Bay Area to Palo Alto on a single
+                charge.
+              </p>
+            </div>
+            <div class="content-right">
+              <img
+                src="./img/tabs/1-icon.png"
+                alt=""
+                class="content-right-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="packing-section">
+      <div class="container">
+        <div class="packing-grid">
+          <!-- Левая колонка: Видео-превью -->
+          <div class="packing-video-block">
+            <h2 class="packing-title">PACKING LIST</h2>
+            <div class="packing-video-preview">
+              <div class="packing-play-btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Правая колонка: Картинка на синем фоне -->
+          <div class="packing-image-block">
+            <img
+              src="./img/list.png"
+              alt="Packing items"
+              class="packing-main-img"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="accessories-section">
+      <div class="container">
+        <h2 class="accessories-title">ACCESSORIES</h2>
+
+        <div class="accessories-grid">
+          <!-- Карточка 1 -->
+          <div class="accessory-card">
+            <div class="card-img-wrap">
+              <!-- Теперь здесь только чистое изображение -->
+              <img src="./img/accessories/1.png" alt="Ninebot Engine Speaker" />
+            </div>
+            <h3>
+              NINEBOT <br />
+              ENGINE SPEAKER
+            </h3>
+            <p>
+              The built-in engine sound simulation system can simulate the
+              realistic engine roar based on the vehicle's accelerator, brake,
+              speed, and other signals
+            </p>
+
+            <div class="card-price-row">
+              <span class="price-label">Price:</span>
+              <span class="price-value">$149.99</span>
+            </div>
+
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+          <div class="accessory-card">
+            <div class="card-img-wrap">
+              <!-- Теперь здесь только чистое изображение -->
+              <img src="./img/accessories/9.png" alt="Ninebot Engine Speaker" />
+            </div>
+            <h3>
+              Extension <br />
+              Rod
+            </h3>
+            <p>
+              The Extension Rod helps you to easily maneuver your scooter, so
+              you no longer need to bend over and push it, making it easier to
+              take with you anywhere.
+            </p>
+
+            <div class="card-price-row">
+              <span class="price-label">Price:</span>
+              <span class="price-value">$29.99</span>
+            </div>
+
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+          <div class="accessory-card">
+            <div class="card-img-wrap">
+              <!-- Теперь здесь только чистое изображение -->
+              <img src="./img/accessories/6.png" alt="Ninebot Engine Speaker" />
+            </div>
+            <h3>Segway Protective Gear Set</h3>
+            <p>
+              The curved, streamlined design of the helmet shell, coupled with
+              the thick, high-quality fabrics create a helmet that is stylish,
+              protective and comfortable to wear.
+            </p>
+
+            <div class="card-price-row">
+              <span class="price-label">Price:</span>
+              <span class="price-value">$29.99</span>
+            </div>
+
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+          <div class="accessory-card">
+            <div class="card-img-wrap">
+              <!-- Теперь здесь только чистое изображение -->
+              <img src="./img/accessories/2.png" alt="Ninebot Engine Speaker" />
+            </div>
+            <h3>Ninebot Leisure Backpack</h3>
+            <p>
+              The Ninebot leisure backpack adopts a stylish gray-yellow color
+              contrast, adding a trendy accessory to your wardrobe.
+            </p>
+
+            <div class="card-price-row">
+              <span class="price-label">Price:</span>
+              <span class="price-value">$69.99</span>
+            </div>
+
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+          <div class="accessory-card">
+            <div class="card-img-wrap">
+              <!-- Теперь здесь только чистое изображение -->
+              <img src="./img/accessories/4.png" alt="Ninebot Engine Speaker" />
+            </div>
+            <h3>Segway External Battery</h3>
+            <p>
+              It is easy to install and increases the range of the ES1, ES2 &
+              E22 to 27.9, 28 and 27 miles respectively and It also increases
+              the speed
+            </p>
+
+            <div class="card-price-row">
+              <span class="price-label">Price:</span>
+              <span class="price-value">$249.99</span>
+            </div>
+
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+          <div class="accessory-card">
+            <div class="card-img-wrap">
+              <!-- Теперь здесь только чистое изображение -->
+              <img src="./img/accessories/7.png" alt="Ninebot Engine Speaker" />
+            </div>
+            <h3>
+              Segway <br />
+              Charger
+            </h3>
+            <p>
+              Whether at home, the office, or on your KickScooter journey, this
+              Ninebot KickScooter by Segway Charger is designed to provide a
+              safe and stable charge anytime, anywhere.
+            </p>
+
+            <div class="card-price-row">
+              <span class="price-label">Price:</span>
+              <span class="price-value">$79.99</span>
+            </div>
+
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+          <div class="accessory-card">
+            <div class="card-img-wrap">
+              <!-- Теперь здесь только чистое изображение -->
+              <img src="./img/accessories/3.png" alt="Ninebot Engine Speaker" />
+            </div>
+            <h3>
+              Segway <br />
+              Scooter Bag
+            </h3>
+            <p>
+              Tough EVA material, suitable for the entire Ninebot KickScooter by
+              Segway line. 3L capacity gives you plenty of room to carry your
+              phone, charger, bottled water, and other personal items.
+            </p>
+
+            <div class="card-price-row">
+              <span class="price-label">Price:</span>
+              <span class="price-value">$49.99</span>
+            </div>
+
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+          <div class="accessory-card">
+            <div class="card-img-wrap">
+              <!-- Теперь здесь только чистое изображение -->
+              <img src="./img/accessories/5.png" alt="Ninebot Engine Speaker" />
+            </div>
+            <h3>
+              Segway <br />
+              Phone Holder
+            </h3>
+            <p>
+              The dual screw, non-slip design offers ultimate security and
+              versatility. The phone holder is applicable to multiple vehicle
+              series.
+            </p>
+
+            <div class="card-price-row">
+              <span class="price-label">Price:</span>
+              <span class="price-value">$29.99</span>
+            </div>
+
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+          <div class="accessory-card">
+            <div class="card-img-wrap">
+              <!-- Теперь здесь только чистое изображение -->
+              <img src="./img/accessories/8.png" alt="Ninebot Engine Speaker" />
+            </div>
+            <h3>
+              Segway <br />
+              Seat
+            </h3>
+            <p>
+              This scooter seat is designed to work with the MAX. It offers high
+              quality, comfort and safety that is in line with the MAX
+              KickScooter.
+            </p>
+
+            <div class="card-price-row">
+              <span class="price-label">Price:</span>
+              <span class="price-value">$119.99</span>
+            </div>
+
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+        </div>
+
+        <!-- Нижняя кнопка -->
+        <div class="see-more-wrap">
+          <button class="see-more-btn">SEE MORE</button>
+        </div>
+      </div>
+    </section>
+    <section class="features-promo-section">
+      <!-- Здесь можно оставить блок пустым, так как картинка задается через CSS -->
+    </section>
+
+    <!-- Секция с характеристиками -->
+    <section class="features-list-section">
+      <div class="container">
+        <h2 class="features-main-title">IMPRESSIVE FEATURES</h2>
+
+        <div class="features-grid">
+          <!-- Иконка 1 -->
+          <div class="feature-item">
+            <div class="feature-icon-wrap">
+              <img src="./img/features/1.png" alt="Pneumatic Tires" />
+            </div>
+            <div class="feature-value">10"</div>
+            <div class="feature-label">Pneumatic Tires</div>
+          </div>
+
+          <!-- Иконка 2 -->
+          <div class="feature-item">
+            <div class="feature-icon-wrap">
+              <img src="./img/features/2.png" alt="Front LED Light" />
+            </div>
+            <div class="feature-value">LED</div>
+            <div class="feature-label">Front LED Light</div>
+          </div>
+
+          <!-- Иконка 3 -->
+          <div class="feature-item">
+            <div class="feature-icon-wrap">
+              <img src="./img/features/3.png" alt="Max Speed" />
+            </div>
+            <div class="feature-value">18.6 mph</div>
+            <div class="feature-label">Max Speed</div>
+          </div>
+
+          <!-- Иконка 4 -->
+          <div class="feature-item">
+            <div class="feature-icon-wrap">
+              <img src="./img/features/4.png" alt="Max Range" />
+            </div>
+            <div class="feature-value">40.4 Miles</div>
+            <div class="feature-label">Max Range</div>
+          </div>
+
+          <!-- Иконка 5 -->
+          <div class="feature-item">
+            <div class="feature-icon-wrap">
+              <img src="./img/features/5.png" alt="Hill Climb" />
+            </div>
+            <div class="feature-value">20%</div>
+            <div class="feature-label">Hill Climb</div>
+          </div>
+
+          <!-- Иконка 6 -->
+          <div class="feature-item">
+            <div class="feature-icon-wrap">
+              <img src="./img/features/6.png" alt="Water-Resistant" />
+            </div>
+            <div class="feature-value">IPX5</div>
+            <div class="feature-label">Water-Resistant</div>
+          </div>
+
+          <!-- Иконка 7 -->
+          <div class="feature-item">
+            <div class="feature-icon-wrap">
+              <img src="./img/features/7.png" alt="Fast Charging" />
+            </div>
+            <div class="feature-value">6H</div>
+            <div class="feature-label">Fast Charging</div>
+          </div>
+
+          <!-- Иконка 8 -->
+          <div class="feature-item">
+            <div class="feature-icon-wrap">
+              <img src="./img/features/8.png" alt="Battery" />
+            </div>
+            <div class="feature-value">551Wh</div>
+            <div class="feature-label">Battery</div>
+          </div>
+        </div>
       </div>
     </section>
     <script src="./js/main.js"></script>

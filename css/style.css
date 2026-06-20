@@ -401,10 +401,429 @@
   box-sizing: border-box;
   margin-bottom: 20px;
 }
+/* tabs */
+.tabs-container {
+  margin-top: 40px;
+}
+/* Верхнее меню */
+.tabs-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #6c757d;
+  transition: all 0.3s ease;
+}
+
+/* Стили для активной вкладки */
+.tab-btn.active {
+  background-color: #00a2ff;
+  color: #fff;
+}
+
+/* Логика отображения контента */
+.tab-content {
+  display: none; /* Скрываем по умолчанию */
+  padding: 0px 20px;
+  background-color: #f8f9fa;
+}
+
+.tab-content.active {
+  display: flex; /* Показываем активный */
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Внутренний контент (Текст и Шестигранник) */
+.content-left {
+  max-width: 58%;
+}
+
+#delivery .content-left {
+  max-width: 24%;
+}
+
+#warranty .content-left {
+  max-width: 50%;
+}
+#warranty .content-left h2 {
+  max-width: 450px;
+}
+
+.content-left h2 {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Bold;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 31px;
+  text-align: left;
+  text-transform: uppercase;
+  max-width: 370px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.content-left p {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Regular;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  margin: 0;
+}
+
+.content-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tab-content.active {
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px); /* Легкий эффект выплывания вверх */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* packing list */
+.packing-section {
+  padding: 60px 0;
+  background: url("../img/fon.png") center center no-repeat;
+  background-size: cover; /* Растягивает картинку на весь блок */
+}
+
+.packing-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a2530;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+/* Двухколоночный флекс-контейнер */
+.packing-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Левая часть — Видео пропорций 16:9 */
+.packing-video-block {
+  flex: 1;
+  max-width: 50%;
+}
+
+.packing-video-preview {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-color: #cccccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.packing-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.packing-play-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+  color: #ffffff;
+  margin-left: 4px;
+}
+
+.packing-video-preview:hover .packing-play-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Правая часть — Конструкция с картинкой и кругом */
+.packing-image-block {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 40px 0;
+}
+
+/* Синий круг сзади */
+
+/* Сама картинка (белая карточка со списком) */
+.packing-main-img {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transform: rotate(5deg); /* Тот самый наклон */
+  transition: transform 0.3s ease;
+}
+
+.packing-main-img:hover {
+  transform: rotate(0deg) scale(1.02); /* Выравнивание при наведении */
+}
+/* Accesories */
+/* Базовые настройки секции */
+.accessories-section {
+  padding: 60px 0;
+  background-color: #ffffff;
+}
+
+.accessories-title {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 119.3%;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+/* Картинка товара */
+.card-img-wrap {
+  height: 140px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.card-img-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Описание */
+.accessory-card p {
+  color: var(--Grey2, rgba(153, 153, 153, 1));
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 119.3%;
+  max-width: 300px;
+}
+
+/* Цена */
+.card-price-row {
+  display: flex;
+  width: 100%;
+  margin-top: auto; /* Прижимает к нижней кнопке */
+  margin-bottom: 20px;
+}
+
+.price-value {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Кнопка "ADD TO CART" */
+.add-to-cart-btn {
+  width: 100%;
+  padding: 15px 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 12px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #00a2ff;
+  border-color: #00a2ff;
+  color: #ffffff;
+}
+
+.features-promo-section {
+  width: 100%;
+  /* Вместо жесткой высоты в px используем aspect-ratio (пропорции картинки) */
+  aspect-ratio: 1920 / 720; /* Замените на реальные пропорции вашей картинки (например, 16 / 9) */
+  max-height: 580px; /* Ограничиваем максимальную высоту на огромных мониторах */
+
+  /* ПРИЖИМАЕМ КАРТИНКУ К ВЕРХУ, чтобы не резало головы */
+  background: url("../img/features/features.png") center top no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Эффект мягкого белого растворения внизу */
+.features-promo-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20%; /* Высота градиента теперь тоже адаптивная в процентах */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  pointer-events: none;
+}
+
+/* Блок характеристик */
+.features-list-section {
+  padding: 60px 0 80px 0;
+  background-color: #ffffff;
+}
+
+.features-main-title {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Bold;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 119.3%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+/* Элемент характеристики */
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.feature-icon-wrap {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.feature-icon-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.feature-value {
+  color: #00a2ff; /* Фирменный синий цвет для цифр */
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.feature-label {
+  color: var(--Grey2, rgba(153, 153, 153, 1));
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+}
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
     display: none;
+  }
+}
+@media (min-width: 769px) {
+  .accessories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 30px;
+  }
+
+  .accessory-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    background: #ffffff;
+  }
+
+  .accessory-card h3 {
+    color: var(--Grey, rgba(50, 57, 65, 1));
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 23px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .accessory-card p {
+    text-align: center;
+  }
+
+  /* На ПК центрируем цену и прячем слово Price */
+  .card-price-row {
+    justify-content: center;
+  }
+
+  .price-label {
+    display: none;
+  }
+
+  .add-to-cart-btn {
+    max-width: 100px;
+    background: transparent;
+    border: 1px solid #e5e8eb;
+    color: #b0b7bd;
+    font-weight: 400;
+  }
+
+  /* Нижняя кнопка SEE MORE */
+  .see-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+  }
+
+  .see-more-btn {
+    background-color: #00a2ff;
+    color: #ffffff;
+    border: none;
+    padding: 16px 50px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+  }
+
+  .see-more-btn:hover {
+    background-color: #008be0;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px 40px; /* Отступы между строками и колонками */
   }
 }
 @media (min-width: 500px) {
@@ -493,6 +912,240 @@
   .cart {
     gap: 12px;
   }
+  .accessories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+  }
+}
+@media (max-width: 768px) {
+  /* Переносим меню кнопок в самый подвал блока */
+  .tabs-container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  /* Сбрасываем фон и делаем кнопки в один ряд */
+  .tabs-menu {
+    background-color: #ffffff;
+    border-top: 1px solid #e9ecef;
+  }
+
+  .tab-btn {
+    padding: 20px 10px;
+    justify-content: center;
+  }
+
+  /* Прячем текст в кнопках меню, оставляя только центрированные иконки */
+  .tab-btn span {
+    display: none;
+  }
+
+  /* Контент выстраивается вертикально: картинка НАВЕРХУ, текст СНИЗУ */
+  .tab-content.active {
+    flex-direction: column-reverse;
+    padding: 30px 15px;
+    gap: 25px;
+  }
+
+  /* Сбрасываем все ваши специфичные max-width для мобильных устройств */
+  .content-left,
+  #delivery .content-left,
+  #warranty .content-left,
+  #warranty .content-left h2,
+  .content-left h2,
+  .content-left p {
+    max-width: 100%; /* Текст займет всю ширину */
+    text-align: center; /* Центрируем текст как на макете */
+  }
+
+  .content-left h2 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  /* Ограничиваем размер картинок и карт, чтобы они аккуратно вписывались в экран смартфона */
+  .content-right img {
+    max-width: 100%;
+    max-height: 250px;
+    height: auto;
+    object-fit: contain;
+  }
+  .packing-section {
+    background-position: center center;
+  }
+
+  .packing-title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 30px; /* Увеличили отступ до карточки */
+  }
+
+  .packing-grid {
+    flex-direction: column;
+  }
+
+  /* Видео теперь снизу и занимает 100% ширины */
+  .packing-video-block {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Блок с карточкой теперь сверху */
+  .packing-image-block {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0; /* Дополнительный отступ для синего круга */
+  }
+
+  /* Уменьшаем синий круг, чтобы он не вылезал за границы экрана телефона */
+  .packing-circle {
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Сама карточка (ровняем наклон чуть ближе к макету) */
+  .packing-main-img {
+    transform: rotate(5deg); /* Сохраняем оригинальный наклон как на фото */
+  }
+  .accessories-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  /* Контейнер горизонтальной прокрутки */
+  .accessories-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible; /* Позволяет странице скроллиться сквозь этот блок */
+    -webkit-overflow-scrolling: touch; /* Плавный скролл для iOS */
+    touch-action: pan-y; /* Разрешает вертикальный жест пальцем */
+    gap: 20px;
+    padding: 10px 20px 30px 20px;
+    margin: 0 -20px;
+  }
+
+  /* Отключаем системный скроллбар */
+  .accessories-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .accessories-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Сама карточка на мобильном */
+  .accessory-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Все элементы прижимаем влево */
+    text-align: left;
+    padding: 0;
+
+    /* Фиксируем ширину карточки в ряду, чтобы они не сжимались */
+    flex: 0 0 200px;
+    width: 200px;
+    max-width: 200px;
+    margin-right: 20px;
+  }
+
+  /* Заголовок сдвигаем влево */
+  .accessory-card h3 {
+    color: var(--Grey, rgba(50, 57, 65, 1));
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+  }
+
+  /* Текст сдвигаем влево */
+  .accessory-card p {
+    text-align: left;
+    max-width: 100%;
+    margin: 0 0 20px 0;
+  }
+
+  /* Разносим слово Price и Сумму по краям */
+  .card-price-row {
+    justify-content: space-between;
+    font-size: 16px;
+  }
+
+  .price-label {
+    display: inline; /* Показываем слово Price только на мобильном */
+    color: #b0b7bd;
+    font-weight: 400;
+  }
+
+  /* Мобильная синяя кнопка на всю ширину */
+  .add-to-cart-btn {
+    max-width: 100%;
+    background-color: #00a2ff;
+    border: 1px solid #00a2ff;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  /* Прячем кнопку SEE MORE на мобильном */
+  .see-more-wrap {
+    display: none;
+  }
+  .advert-text {
+    display: none;
+  }
+  .features-promo-section {
+    height: auto; /* Сбрасываем фиксированную высоту */
+    aspect-ratio: 16 / 14; /* На мобилке делаем блок чуть более квадратным, чтобы они поместились во весь рост */
+    background-position: center top; /* Держим фокус на головах */
+  }
+
+  .features-promo-section::after {
+    height: 80px;
+  }
+
+  /* Заголовок секции */
+  .features-main-title {
+    font-size: 26px;
+    margin-bottom: 35px;
+  }
+
+  /* Сетка характеристик: строго 4 колонки в один ряд, как на вашем скриншоте */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки на строку */
+    gap: 30px 10px; /* Компактные отступы, чтобы всё влезло по ширине */
+    padding: 0 10px; /* Небольшие отступы от краев экрана телефона */
+  }
+
+  /* Уменьшаем обертку иконок под мобильный экран */
+  .feature-icon-wrap {
+    height: 45px;
+    margin-bottom: 10px;
+  }
+
+  /* Голубые цифры/значения */
+  .feature-value {
+    font-size: 15px; /* Уменьшаем размер, чтобы длинные надписи (например, 18.6 mph) не переносились некрасиво */
+    margin-bottom: 4px;
+  }
+
+  /* Серые подписи */
+  .feature-label {
+    font-size: 11px; /* Компактный аккуратный шрифт для мобильного текста */
+    line-height: 1.2;
+  }
+  .features-list-section {
+    padding: 0;
+  }
+  .features-promo-section::after {
+    display: none;
+  }
 }
 @media (max-width: 580px) {
   .main-details-item:nth-child(2),
@@ -571,6 +1224,28 @@
     width: 100%;
     height: auto;
     display: block;
+  }
+  .accessories-section {
+    padding: 30px 0;
+  }
+
+  .accessories-title {
+    font-size: 26px;
+    margin-bottom: 35px;
+  }
+
+  /* На мобильных выстраиваем карточки строго в одну колонку */
+  .accessories-grid {
+    grid-template-columns: 1fr;
+    gap: 40px 0;
+  }
+
+  .accessory-card p {
+    max-width: 100%;
+  }
+  .add-to-cart-btn {
+    font-size: 18px;
+    font-weight: 400;
   }
 }
 @media (max-width: 500px) {
