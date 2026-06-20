@@ -1150,7 +1150,54 @@
   max-height: 420px; /* Идеальный масштаб, чтобы колесо не прижималось к краям секции */
   object-fit: contain;
 }
+/* ==========================================================================
+   ИСПРАВЛЕННЫЙ ДЕСКТОПНЫЙ CSS ДЛЯ ВАРЕАНТА С ФОНОМ (Экран больше 768px)
+   ========================================================================== */
+.modes-section {
+  /* Задаем просторные верхний и нижний отступы, чтобы блок не сжимался */
+  padding: 120px 0;
+  width: 100%;
 
+  /* СТАВИМ КАРТИНКУ ФОНОМ: прижимаем к ПРАВОМУ КРАЮ и к САМОМУ ВЕРХУ, чтобы руль не резало */
+  background: #0b111e url("../img/mode.png") right top no-repeat;
+
+  /* Позволяет картинке аккуратно заполнять блок без обрезки важных деталей */
+  background-size: cover;
+}
+
+/* Ограничиваем обертку, чтобы текст не наползал на фоновый руль */
+.modes-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Текст слева: сидит идеально в общей сетке сайта */
+.modes-content {
+  flex: 0 0 50%; /* Текст занимает ровно левую половину контейнера */
+  max-width: 500px;
+}
+
+.modes-title {
+  color: #ffffff; /* Белый текст для темного баннера */
+  font-style: Bold;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 119.3%;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+
+.modes-text {
+  color: var(--Grey2, rgba(153, 153, 153, 1)); /* Приглушенный текст */
+  font-style: Regular;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  margin: 0;
+}
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -1930,6 +1977,39 @@
     height: auto;
     max-height: none;
     object-fit: contain;
+  }
+  .modes-section {
+    /* Верхний отступ для текста, а нижний паддинг создает место под фоновый руль */
+    padding: 40px 0 280px 0;
+    width: 100%;
+    background: #0b111e url("../img/mode-mobile.png") center center no-repeat;
+    background-size: cover;
+  }
+
+  /* Сбрасываем десктопный Flexbox, превращая блок в обычный вертикальный поток */
+  .modes-wrapper {
+    display: block;
+  }
+
+  /* Текстовый блок сверху: занимает всю ширину и выравнивается влево */
+  .modes-content {
+    max-width: 100%;
+    text-align: left; /* Строго влево по твоему макету */
+    padding: 0 20px; /* Паддинги от краев дисплея смартфона */
+  }
+
+  .modes-title {
+    font-size: 25px; /* Компактный мобильный размер шрифта */
+    line-height: 120%;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .modes-text {
+    font-size: 14px;
+    line-height: 140%;
+    text-align: left;
+    max-width: 100%;
   }
 }
 @media (max-width: 580px) {
