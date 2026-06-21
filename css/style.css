@@ -249,6 +249,7 @@
 .main-info {
   padding: 20px;
   border: 2px solid rgb(186, 184, 184);
+  background: #fff;
   display: flex;
   flex-direction: column;
 }
@@ -1696,7 +1697,13 @@
 .reviews-arrow--next {
   right: -20px;
 }
-
+.main-bottom {
+  background-image: url("../img/bottom.png");
+  background-repeat: no-repeat;
+  /* ИСПРАВЛЕНО: Сдвигаем фон за правый край */
+  background-position: 145% center;
+  background-size: contain;
+}
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -2721,6 +2728,9 @@
     font-size: 14px;
     text-align: center;
   }
+  .bonus-section {
+    padding-bottom: 0;
+  }
   .bonus-card {
     flex-direction: column; /* Элементы встают вертикально */
     padding: 30px 20px;
@@ -2753,6 +2763,24 @@
   .reviews-slider-track {
     grid-auto-columns: 85%; /* Виден 1 отзыв + край следующего, намекая на скролл */
     gap: 20px;
+  }
+  .main-bottom {
+    /* ИСПРАВЛЕНО: Центрируем картинку по горизонтали и поднимаем чуть выше центра */
+    background-position: center -10px;
+
+    /* Увеличиваем размер фона, чтобы самокат стал крупным на экране телефона */
+    background-size: 90% auto;
+
+    /* Важно: добавляем большой верхний отступ контенту (гарантии и ценам), 
+       чтобы они физически сместились вниз и освободили место под самокат */
+
+    /* Сбрасываем десктопное выравнивание flex-элементов (если контент был в ряд, пускаем в колонку) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bottom-wrapper {
+    padding-top: 200px;
   }
 }
 @media (max-width: 580px) {
