@@ -1741,6 +1741,134 @@ a.footer__info:hover {
   color: #ffffff;
   transition: color 0.2s ease;
 }
+.control-section {
+  padding: 80px 0;
+  font-family: "Arial", sans-serif;
+  background-color: #ffffff;
+}
+
+/* Шапка секции с текстом */
+.control-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+}
+
+.control-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #2b2b2b;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.5px;
+}
+
+.control-text {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Контейнер для двух колонок */
+.control-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* ИСПРАВЛЕНО: Левая колонка теперь центрирует контент внутри себя */
+.control-left {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрирует и сетку, и кнопки по своей оси */
+}
+
+/* Правая колонка с рукой и смартфоном */
+.control-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ИСПРАВЛЕНО: Сетка шестиугольников теперь имеет полную ширину контейнера */
+.features-hexagon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px 20px;
+  margin-bottom: 40px;
+  width: 100%;
+  justify-items: center; /* Центрирует элементы внутри колонок */
+}
+
+/* Элемент сетки */
+.hexagon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Картинка шестиугольника */
+.hexagon-img {
+  width: 76px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 12px auto;
+  display: block;
+}
+
+/* Подписи к иконкам */
+.hexagon-label {
+  font-size: 12px;
+  color: #cccccc;
+  line-height: 1.3;
+  font-weight: bold;
+  max-width: 130px;
+}
+
+/* Синий цвет текста для активных элементов */
+.hexagon-item--blue .hexagon-label {
+  color: #00a0ff;
+}
+
+/* ИСПРАВЛЕНО: Кнопки магазинов теперь тоже выровнены по центру сетки */
+.control-stores {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: center; /* Центрирует App Store и Google Play под сеткой */
+}
+
+/* Одинаковые размеры для сторов */
+.store-btn {
+  display: inline-block;
+  width: 135px;
+  height: 40px;
+  transition: transform 0.2s ease;
+}
+
+.store-btn:hover {
+  transform: scale(1.03);
+}
+
+.store-btn img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Картинка мобильного телефона */
+.phone-mockup img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -2832,6 +2960,78 @@ a.footer__info:hover {
 
   .footer__copyright {
     order: 4; /* Гарантирует, что копирайт всегда будет самым нижним элементом */
+  }
+  .control-section {
+    padding: 40px 0;
+  }
+
+  .control-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .control-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* Перестраиваем колонки вертикально */
+  .control-body {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  /* Рука с телефоном прыгает НАВЕРХ, под описание */
+  .control-right {
+    order: 1;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .phone-mockup img {
+    max-width: 280px; /* Уменьшаем телефон на мобильном экране */
+    margin: 0 auto;
+  }
+
+  /* Блок с иконками уходит ВНИЗ под телефон */
+  .control-left {
+    order: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Сохраняем сетку строго в 3 колонки на смартфонах */
+  .features-hexagon-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 10px;
+    margin-bottom: 35px;
+    width: 100%;
+  }
+
+  /* Пропорционально уменьшаем картинки, чтобы они не вылезали за экран */
+  .hexagon-img {
+    width: 55px;
+    margin-bottom: 8px;
+  }
+
+  /* На мобильных весь текст по макету становится серым, сбрасываем синий */
+  .hexagon-label,
+  .hexagon-item--blue .hexagon-label {
+    font-size: 11px;
+    color: #cccccc;
+  }
+
+  /* Центрируем кнопки сторов по экрану телефона */
+  .control-stores {
+    justify-content: center;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .store-btn img {
+    height: 36px; /* Слегка уменьшаем кнопки */
   }
 }
 @media (max-width: 580px) {
