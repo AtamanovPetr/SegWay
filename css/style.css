@@ -1707,6 +1707,40 @@
 .accessories-bottom {
   padding: 40px 0px;
 }
+.footer {
+  background-color: #353e43; /* Темно-серый цвет из макета */
+  padding: 30px 0;
+}
+
+/* Флекс-контейнер для распределения элементов на десктопе */
+.footer__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Распределяет элементы равномерно */
+  gap: 20px;
+}
+
+/* Логотип */
+.footer__logo img {
+  display: block;
+  max-height: 40px; /* Настройте под реальную высоту вашего логотипа */
+  width: auto;
+}
+
+/* Общие стили для текстовых блоков */
+.footer__info {
+  font-size: 13px;
+  color: #929a9e; /* Приглушенный цвет текста */
+  text-decoration: none;
+  font-style: normal; /* Сброс курсива у тега address */
+  line-height: 1.4;
+}
+
+/* Ссылка на телефон при наведении */
+a.footer__info:hover {
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -2784,6 +2818,20 @@
   }
   .bottom-wrapper {
     padding-top: 200px;
+  }
+  .footer {
+    padding: 40px 0; /* Немного увеличиваем отступы на мобилке */
+  }
+
+  .footer__wrapper {
+    flex-direction: column; /* ИСПРАВЛЕНО: Всё встает строго в колонку */
+    align-items: center; /* Центрируем все элементы */
+    text-align: center;
+    gap: 25px; /* Комфортное расстояние между строками */
+  }
+
+  .footer__copyright {
+    order: 4; /* Гарантирует, что копирайт всегда будет самым нижним элементом */
   }
 }
 @media (max-width: 580px) {
