@@ -1198,6 +1198,158 @@
   text-align: left;
   margin: 0;
 }
+
+.manual-section {
+  padding: 60px 0;
+  font-family: "Arial", sans-serif;
+  overflow: hidden; /* Скрывает вылеты картинки, если контейнер прижмет к краю экрана */
+}
+
+/* Карточка с рамкой */
+.manual-card {
+  display: flex;
+  align-items: center;
+  border: 4px solid #00a0ff;
+  background-color: #ffffff;
+  padding: 30px 40px;
+  gap: 40px;
+  box-sizing: border-box;
+  height: 300px; /* Ограничиваем высоту всей секции для аккуратного вида */
+}
+
+/* Позиционирование вылетающей книги */
+.manual-image {
+  flex: 0 0 35%;
+  height: 100%;
+  position: relative;
+}
+
+.manual-image img {
+  height: 160%; /* Вылет на 30% больше высоты карточки */
+  width: auto;
+  max-width: none;
+  display: block;
+  position: absolute;
+  bottom: -50px;
+}
+
+/* Правая часть с контентом */
+.manual-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  align-items: flex-start; /* Предотвращает растягивание кнопки во всю ширину */
+}
+
+/* Заголовок секции */
+.manual-title {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Bold;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 119.3%;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0 0 15px 0;
+}
+
+/* Ряд плашек с иконками */
+.manual-features {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+/* Элемент списка — иконка слева, текст справа */
+.feature-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+.feature-item:nth-of-type(1) {
+  max-width: 150px;
+}
+
+/* Разрешаем тексту внутри неё переноситься */
+.feature-item:nth-of-type(1) .feature-text {
+  white-space: normal;
+}
+
+/* Контейнер иконки */
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0; /* Защита от сжатия длинным текстом */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Текст внутри плашки */
+.feature-text {
+  color: var(--Grey, rgba(50, 57, 65, 1));
+  font-style: Regular;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 119.3%;
+  text-align: left;
+  margin: 0;
+}
+
+/* Исключение для первой плашки: разрешаем аккуратный перенос в две строки */
+.manual-features .feature-item:first-child .feature-text {
+  white-space: normal;
+  max-width: 140px;
+}
+
+/* Кнопка скачивания */
+.manual-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* Центрируем контент внутри кнопки */
+  gap: 20px; /* Фиксированный зазор между текстом и иконкой PDF */
+  background-color: #00a0ff;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 2px;
+  width: auto;
+  min-width: 240px;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+.manual-btn:hover {
+  background-color: #008be2;
+}
+
+/* Иконка внутри кнопки */
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -2010,6 +2162,97 @@
     line-height: 140%;
     text-align: left;
     max-width: 100%;
+  }
+  .manual-section {
+    padding: 70px 0 40px 0; /* Верхний отступ дает место под вылетающую книгу */
+  }
+
+  .manual-card {
+    flex-direction: column;
+    height: auto; /* Сбрасываем фиксированную высоту */
+    padding: 20px 15px 30px 15px; /* Компактные отступы по бокам */
+    gap: 20px;
+  }
+
+  /* Исправленный контейнер книги: создает физическое пространство, чтобы не было каши */
+  .manual-image {
+    width: 100%;
+    max-width: 180px;
+    height: 90px; /* Резервируем место под нижнюю часть книги */
+    margin: 0 auto;
+    position: relative;
+    flex: none;
+  }
+
+  /* Сама книга вылетает наверх над синей рамкой */
+  .manual-image img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    top: -85px; /* Выталкиваем строго наверх */
+    left: 0;
+    transform: none;
+  }
+
+  /* Контентная часть */
+  .manual-content {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .manual-title {
+    font-size: 22px;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+
+  /* Три плашки выстраиваются строго в один ГОРИЗОНТАЛЬНЫЙ ряд */
+  .manual-features {
+    flex-direction: row;
+    align-items: flex-start; /* Выравнивание по верхнему краю иконок */
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  /* Каждая плашка: иконка сверху, текст снизу */
+  .feature-item {
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Сбрасываем десктопное ограничение для первой плашки */
+  .feature-item:nth-of-type(1) {
+    max-width: none;
+  }
+
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 10px;
+  }
+
+  .feature-text {
+    font-size: 11px; /* Чуть уменьшаем, чтобы длинный текст умещался в три колонки */
+    white-space: normal; /* Разрешаем переносы для всех текстов */
+    color: #666666;
+  }
+
+  /* Кнопка скачивания на весь экран смартфона */
+  .manual-btn {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 20px;
+  }
+
+  /* Скрываем иконку PDF на мобильных устройствах согласно макету */
+  .btn-icon {
+    display: none;
   }
 }
 @media (max-width: 580px) {
