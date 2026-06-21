@@ -58,3 +58,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const wrapper = document.querySelector(".reviews-slider-wrapper");
+  const prevBtn = document.querySelector(".reviews-arrow--prev");
+  const nextBtn = document.querySelector(".reviews-arrow--next");
+  const track = document.querySelector(".reviews-slider-track");
+
+  if (wrapper && prevBtn && nextBtn && track) {
+    // Функция расчета шага (ширина одной карточки + gap)
+    const getStepWidth = () => {
+      const card = track.querySelector(".review-card-item");
+      return card ? card.offsetWidth + 30 : 300;
+    };
+
+    // Клик Вперед
+    nextBtn.addEventListener("click", () => {
+      wrapper.scrollBy({ left: getStepWidth(), behavior: "smooth" });
+    });
+
+    // Клик Назад
+    prevBtn.addEventListener("click", () => {
+      wrapper.scrollBy({ left: -getStepWidth(), behavior: "smooth" });
+    });
+  }
+});

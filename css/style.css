@@ -1531,6 +1531,7 @@
 /* Карточка с голубой рамкой */
 .bonus-section {
   padding-top: 30px;
+  padding-bottom: 80px;
 }
 .bonus-card {
   display: flex;
@@ -1581,6 +1582,121 @@
   line-height: 1.4;
   margin: 0;
 }
+
+.reviews-section {
+  padding: 80px 0;
+  background-color: #f7f9fa; /* Светлый фон секции, как на макете */
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.reviews-main-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #2b2b2b;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Контейнер-база: фиксирует стрелки по бокам */
+.reviews-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Обертка самого слайдера: прячет вылетающие вбок картинки */
+.reviews-slider-wrapper {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 1060px; /* Ширина под 3 карточки с учетом зазоров */
+  margin: 0 auto;
+}
+
+/* Отключаем дефолтные полосы прокрутки */
+.reviews-slider-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.reviews-slider-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Лента слайдера на CSS Grid (3 колонки на экране) */
+.reviews-slider-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(
+    33.333% - 20px
+  ); /* Каждая карточка занимает треть строки */
+  gap: 30px; /* Отступы между синими рамками */
+  width: 100%;
+  padding: 10px 0; /* Чтобы тени или рамки не зарезались сверху/снизу */
+}
+
+/* Элемент слайдера — карточка с картинкой внутри */
+.review-card-item {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.review-card-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Общие стили для стрелок навигации */
+.reviews-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.reviews-arrow:hover {
+  background-color: #e6f5ff;
+}
+
+.reviews-arrow img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+/* Позиционирование левой стрелки */
+.reviews-arrow--prev {
+  left: -20px;
+}
+.reviews-arrow--prev img {
+  transform: rotate(180px); /* Поворачиваем вашу картинку стрелки влево */
+}
+
+/* Позиционирование правой стрелки */
+.reviews-arrow--next {
+  right: -20px;
+}
+
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -1754,6 +1870,10 @@
   .accessories-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px 20px;
+  }
+  .reviews-slider-track {
+    grid-auto-columns: calc(50% - 15px);
+    gap: 30px;
   }
 }
 @media (max-width: 768px) {
@@ -2620,6 +2740,19 @@
 
   .bonus-text {
     font-size: 14px;
+  }
+  .reviews-arrow {
+    display: none;
+  }
+
+  .reviews-slider-wrapper {
+    padding: 0 15px;
+  }
+
+  /* На смартфонах показываем по 1 карточке на весь экран */
+  .reviews-slider-track {
+    grid-auto-columns: 85%; /* Виден 1 отзыв + край следующего, намекая на скролл */
+    gap: 20px;
   }
 }
 @media (max-width: 580px) {
