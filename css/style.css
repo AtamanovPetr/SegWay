@@ -1350,6 +1350,183 @@
   height: 100%;
   object-fit: contain;
 }
+.compare-section .container {
+  position: relative;
+}
+.compare-section {
+  padding: 80px 0;
+  font-family: "Arial", sans-serif;
+  background-color: #ffffff;
+}
+
+/* Шапка с заголовками секции */
+.compare-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.compare-main-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #2b2b2b;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.5px;
+}
+
+.compare-subtitle {
+  font-size: 14px;
+  color: #888888;
+  margin: 0;
+}
+
+/* Обертка всей таблицы */
+.compare-slider-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ИСПРАВЛЕНО: Сетка на 5 товаров. 1 колонка параметров (240px) + 5 колонок под товары */
+.compare-table {
+  display: grid;
+  grid-template-columns: 240px repeat(5, minmax(180px, 1fr));
+  width: 100%;
+}
+
+/* Обертка строки — делает ячейки прямыми участниками Grid */
+.compare-row {
+  display: contents;
+}
+
+/* Базовые стили для всех ячеек */
+.compare-cell {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #2b2b2b;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Левая колонка с синими названиями характеристик */
+.compare-cell--label {
+  font-weight: bold;
+  color: #00a0ff;
+  gap: 10px;
+}
+
+/* ИСПРАВЛЕНО: Прячем мобильную кнопку ADD MODEL и её ячейку-пустышку во всех строках */
+.compare-product-card--add,
+.compare-row:not(.compare-row--header) .compare-cell:nth-child(3),
+.compare-row--footer .compare-cell:nth-child(3) {
+  display: none;
+}
+
+/* Карточка товара (картинка + имя) */
+.compare-product-card {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product-img-2 {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.product-img-2 img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.product-name-2 {
+  font-size: 13px;
+  font-weight: 800;
+  color: #2b2b2b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Нижний подвал таблицы (Цены и кнопки) */
+.compare-row--footer .compare-cell {
+  border-bottom: none;
+  padding-top: 30px;
+}
+
+.compare-actions {
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: #2b2b2b;
+}
+
+/* Кнопка КУПИТЬ */
+.buy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00a0ff;
+  color: #ffffff;
+  text-decoration: none;
+  width: 100%;
+  max-width: 160px;
+  padding: 12px 10px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.buy-btn:hover {
+  background-color: #008be2;
+}
+
+/* Кнопка-стрелка справа */
+.compare-arrow-btn {
+  position: absolute;
+  right: 8%;
+  top: 65%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background-color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.compare-arrow-btn img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+.compare-slider-wrapper {
+  overflow-x: auto;
+  scroll-behavior: smooth; /* Делает прокрутку плавной */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Скрываем полосу прокрутки снизу в разных браузерах, чтобы осталась только красивая стрелка */
+.compare-slider-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.compare-slider-wrapper {
+  -ms-overflow-style: none; /* IE и Edge */
+  scrollbar-width: none; /* Firefox */
+}
 @media (min-width: 1024px) {
   .catalog-swiper .swiper-button-prev,
   .catalog-swiper .swiper-button-next {
@@ -2253,6 +2430,122 @@
   /* Скрываем иконку PDF на мобильных устройствах согласно макету */
   .btn-icon {
     display: none;
+  }
+
+  .compare-table {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+
+  /* ИСПРАВЛЕНО: Возвращаем кнопку ADD MODEL и её ячейки на мобильном */
+  .compare-product-card--add,
+  .compare-row:not(.compare-row--header) .compare-cell:nth-child(3) {
+    display: flex;
+  }
+
+  /* ИСПРАВЛЕНО: Скрываем все остальные товары (с 4 по 7 ячейку), чтобы оставить только E22 и кнопку ADD */
+  .compare-row .compare-cell:nth-child(4),
+  .compare-row .compare-cell:nth-child(5),
+  .compare-row .compare-cell:nth-child(6),
+  .compare-row .compare-cell:nth-child(7) {
+    display: none;
+  }
+
+  /* Прячем стрелку слайдера */
+  .compare-arrow-btn {
+    display: none;
+  }
+
+  /* НАЗВАНИЕ ПАРАМЕТРА: Растягиваем на всю ширину экрана над значениями */
+  .compare-cell--label {
+    grid-column: 1 / -1;
+    background-color: #f7f9fa;
+    padding: 12px 15px 6px 15px;
+    font-size: 14px;
+    border-bottom: none;
+  }
+
+  /* ЯЧЕЙКИ ЗНАЧЕНИЙ */
+  .compare-row:not(.compare-row--header):not(.compare-row--footer)
+    .compare-cell {
+    padding: 6px 15px 12px 15px;
+    background-color: #f7f9fa;
+    border-bottom: 1px solid #eef2f5;
+  }
+
+  .compare-cell-content {
+    font-size: 14px;
+    color: #2b2b2b;
+  }
+
+  /* Шапка на мобильном */
+  .compare-row--header .compare-cell {
+    padding: 20px 10px;
+    background-color: #ffffff;
+    border-bottom: none;
+  }
+
+  .product-img-2 {
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .product-name-2 {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  /* Синий круглый плюс (ADD MODEL) */
+  .add-model-btn {
+    width: 65px;
+    height: 65px;
+    background-color: #00a0ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .add-model-btn span {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  /* ПОДВАЛ: Перестраиваем в вертикальный блок для кнопки */
+  .compare-row--footer {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    padding: 20px 15px;
+    background-color: #ffffff;
+  }
+
+  /* Показываем только цену и кнопку первого товара */
+  .compare-row--footer .compare-actions:not(:nth-child(2)) {
+    display: none;
+  }
+
+  .compare-actions {
+    width: 100%;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .product-price {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  /* Кнопка КУПИТЬ во всю ширину мобильного экрана */
+  .buy-btn {
+    width: 100%;
+    max-width: none;
+    padding: 14px;
+    font-size: 14px;
+    text-align: center;
   }
 }
 @media (max-width: 580px) {
